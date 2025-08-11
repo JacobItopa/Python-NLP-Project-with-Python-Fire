@@ -1,9 +1,5 @@
-from nlplogic.corenlp import (
-    summarize_wikipedia,
-    get_phrases,
-    search_wikipedia,
-    get_textblob,
-)
+from nlplogic.corenlp import get_phrases
+    
 
 def test_phrases():
     """
