@@ -1,23 +1,16 @@
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+	python -m textblob.download_corpora
 
 test:
-	python -m pytest --nbval Untitled90.ipynb
+	python -m pytest -vv --cov=wikiphrases --cov=nlplogic test_corenlp.py 
 
 format:
 	black *.py
 
 lint:
-	pylint --disable=R,C hello.py
+	pylint --disable=R,C *.py nlplogic/*.py
 
-deploy:
-	# Add deployment commands here, e.g., to a server or cloud service
-
-container lint:
-	# Lint the Dockerfile or container configuration
-
-refactor:
-	# Refactor the codebase, e.g., by applying design patterns or improving structure
 
 all: install lint test format deploy container
