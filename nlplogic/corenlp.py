@@ -17,15 +17,9 @@ def summarize_wikipedia(name):
     :param name: The name to summarize.
     :return: Summary of the Wikipedia page.
     """
-    try:
-        page = wikipedia.page(name)
-        return page.summary
-    except wikipedia.exceptions.DisambiguationError as e:
-        return f"Disambiguation error: {e.options}"
-    except wikipedia.exceptions.PageError:
-        return "Page not found."
-    except Exception as e:
-        return str(e)
+    
+    page = wikipedia.page(name)
+    return page.summary
 
 def get_textblob(text):
     """
